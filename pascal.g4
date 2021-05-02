@@ -25,7 +25,8 @@ expr      : arith_expr | bool_expr | STRING ;
 
 arith_expr: sum_expr ;
 sum_expr  : prod_expr | prod_expr ('+' | '-') sum_expr;
-prod_expr : arith_val | arith_val ('*' | '/' | '%') prod_expr ;
+prod_expr : sign_val | sign_val ('*' | '/' | '%') prod_expr ;
+sign_val  : arith_val | ('+' | '-') sign_val;
 arith_val : NUMBER | ID | '(' arith_expr ')';
 
 bool_expr : or_expr ;
